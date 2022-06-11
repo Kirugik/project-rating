@@ -17,7 +17,7 @@ urlpatterns = [
     path('update-profile/', views.project_details, name='update-profile'), 
 
     path('projectrating/api/profiles/', views.ProfilesList.as_view(), name='profiles-api'),
-    path('projectrating/api/projects/', views.ProjectsList.as_view(), name='projects-api'), 
+    path('projectrating/api/projects/', views.ProjectsList.as_view(), name='projects-api'),  
 ]  
 
 if settings.DEBUG:
