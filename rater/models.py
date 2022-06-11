@@ -22,7 +22,7 @@ class Project(models.Model):
     technologies_used = models.CharField(max_length=255, blank=True)  
     pub_date = models.DateTimeField(auto_now_add=True)
     link = models.URLField(null=False) 
-    profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile,on_delete=models.CASCADE, null=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="projects", blank=True, null=True) 
 
     def __str__(self):
