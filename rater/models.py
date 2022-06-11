@@ -23,7 +23,7 @@ class Project(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     link = models.URLField(null=False) 
     profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="projects") 
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="projects", blank=True, null=True) 
 
     def __str__(self):
         return self.project_name  
@@ -34,7 +34,7 @@ class Project(models.Model):
 
 
 class Rating(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='user_ratings')
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_ratings', blank=True, null=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, related_name='project_ratings') 
     design_rating = models.IntegerField(choices=[(i,i) for i in range(1,11)])
     usability_rating = models.IntegerField(choices=[(i,i) for i in range(1,11)])
