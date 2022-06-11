@@ -36,12 +36,10 @@ class Project(models.Model):
 class Rating(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_ratings', blank=True, null=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True, related_name='project_ratings') 
-    design_rating = models.IntegerField(choices=[(i,i) for i in range(1,11)])
-    usability_rating = models.IntegerField(choices=[(i,i) for i in range(1,11)])
-    content_rating = models.IntegerField(choices=[(i,i) for i in range(1,11)]) 
-
-    average_rating = models.FloatField(choices=[(i,i) for i in range(1,10)])
-    posted = models.DateTimeField(auto_now_add=True)
+    design_rating = models.IntegerField(choices=[(i,i) for i in range(1,11)], null=True)
+    usability_rating = models.IntegerField(choices=[(i,i) for i in range(1,11)], null=True)
+    creativity_rating = models.IntegerField(choices=[(i,i) for i in range(1,11)], null=True)
+    content_rating = models.IntegerField(choices=[(i,i) for i in range(1,11)], null=True)   
     
     
     def __str__(self):
