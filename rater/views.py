@@ -3,6 +3,9 @@ from .models import Profile, Project, Rating
 from .forms import NewProjectForm
 from django.http import HttpResponse 
 from django.contrib.auth.models import User
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer, ProjectSerializer, RatingSerializer 
 
 # Create your views here.
 def index(request):
@@ -45,5 +48,20 @@ def user_profile(request):
 
 def update_profile(request):
     return render(request, 'rater/update_profile.html') 
+
+
+
+class ProfilesList(APIView):
+    def get(self, request, format=None):
+        all_profiles = Profile.objects.all() 
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response (serializers.data)
+
+
+class ProjectsList(APIView):
+    def get(self, request, format=None):
+        all_projects = Project.objects.all()
+        serializers = ProjectSerializer(all_projects, many=True)
+        return Response (serializers.data)
 
 
