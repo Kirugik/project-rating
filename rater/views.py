@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from .models import Profile, Project, Rating
 from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return render(request, 'rater/index.html')
+    projects = Project.objects.all()
+    context = {'projects': projects}
+    return render(request, 'rater/index.html', context)
 
 
 def project_details(request):
