@@ -24,6 +24,7 @@ def search_project(request):
 
 
 def new_project(request):
+    form = NewProjectForm() 
     current_user = request.user
     
     if request.method == 'POST':
@@ -32,11 +33,11 @@ def new_project(request):
             new_project = form.save(commit=False)
             new_project.user = current_user
             new_project.save()
-            return redirect('index')
-        else:
-            form = NewProjectForm()
+        return redirect('index')
+    else:
+        form = NewProjectForm()
     context = {'form': form, 'current_user': current_user}
-    return render(request, 'rater/new_project.html') 
+    return render(request, 'rater/new_project.html', context)  
 
 
 def user_profile(request):

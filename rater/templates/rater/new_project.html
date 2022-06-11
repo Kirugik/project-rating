@@ -4,17 +4,15 @@
 
 
 {% block content %}
-<div class="row">
-    <div class="col-md-8">
-        <h3 class="text-center" style="color:white;">New Project</h3>
-        <div>
-            <form  action="" method="post" enctype="multipart/form-data" >
-                {%csrf_token%}
+<div class="container">
+    <h3>New Project</h3>
+    <div>
+        <form method='post'  action="">
+            {% csrf_token %}
 
-                {% bootstrap_form form %}
-                <input type="submit" class="btn btn-success" value="Submit">
-            </form>
-        </div>
+            {{form.as_p}} 
+            <input type="submit" class="btn btn-success" value="Submit">
+        </form>
     </div>
 </div>
-{% endblock %}
+{% endblock %} 
