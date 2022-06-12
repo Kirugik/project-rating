@@ -4,14 +4,13 @@
 
 
 {% block content %}
-<div class="mt-5">
-
-
+<div class="container-fluid mt-3"> 
     <div class="row">
-        
+
         {% for project in projects %}
-        <div class="col-md-3"> 
-            <div class="card">
+        <div class="col-md-3">
+            
+            <div class="card"> 
                 <img src="{{project.project_image.url}}" class="card-img-top img-fluid" alt="{{project.project_name}}">
                 <div>
                     <h3 style="margin-top: 15px; margin-left: 10px;">{{project.project_name}}</h3>
@@ -22,7 +21,8 @@
         </div>
         {% endfor %}
 
+        
     </div>
 </div>
+{% endblock %} 
 
-{% endblock %}
