@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rater.apps.RaterConfig',
     'bootstrap4', 
-    'rest_framework', 
+    'rest_framework',
+    'fontawesomefree', 
 ]
 
 MIDDLEWARE = [
