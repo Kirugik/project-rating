@@ -28,6 +28,11 @@ class Project(models.Model):
     def __str__(self):
         return self.project_name  
         
+    @classmethod
+    def search_project(cls, keyword):
+        projects = cls.objects.filter(project__name=keyword) 
+        return projects 
+        
     class Meta:
         ordering=['-pub_date'] 
 
