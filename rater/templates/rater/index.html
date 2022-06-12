@@ -14,7 +14,7 @@
 .hero {
     position: relative;
     width: 100vw;
-    height: 60vh;   
+    height: 40vh;   
     background-color: #A0AECD; 
 }
 .hero::before {
@@ -24,16 +24,32 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(images/forest.jpg);
+    /* background: url(images/forest.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    filter: brightness(60%);
+    filter: brightness(60%); */
 }
 .hero-content {
     position: relative;
     top: 30%;
     left: 15%;
+}
+
+.card {
+    font-size: 18px;
+    min-height: 700px; 
+}
+.card img {
+    min-height: 400px; 
+}
+.card-content {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.loc-date {
+    display: flex;
+    justify-content: space-between;
 }
 </style> 
 
@@ -63,10 +79,13 @@
             
             <div class="card"> 
                 <img src="{{project.project_image.url}}" class="card-img-top img-fluid" alt="{{project.project_name}}">
-                <div>
-                    <h3 style="margin-top: 15px; margin-left: 10px;">{{project.project_name}}</h3>
-                    <small class="text-muted">{{project.description|slice:":200" }}...</small><br><br>
-                    <small class="text-muted">{{project.pub_date}}</small>
+                <div class="card-content">
+                    <h3 style="margin-top: 15px;">{{project.project_name}}</h3>
+                    <p>{{project.description|slice:":100" }}...</p>
+                    <div class="loc-date">
+                        <p>From {{project.profile.location}}</p>
+                        <p>{{project.pub_date}}</p> 
+                    </div>
                 </div>
             </div>
         </div>
