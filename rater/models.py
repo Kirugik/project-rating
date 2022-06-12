@@ -8,10 +8,10 @@ class Profile(models.Model):
     profile_picture = models.ImageField(upload_to='profiles/')
     bio = models.TextField(max_length=200, default="My Bio") 
     location = models.CharField(max_length=100, blank=True) 
-    contact = models.EmailField(max_length=100, blank=True) 
+    contact = models.EmailField(max_length=100, blank=True)    
 
     def __str__(self):
-        return self.user.username
+        return self.user.username 
 
 
 

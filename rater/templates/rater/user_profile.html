@@ -3,9 +3,12 @@
 
 
 {% block content %}
-<div class="container" >
+<div class="container mt-5" >
     <div class="row"style="padding-bottom: 50px;" >
-        <div class="col-lg-6">
+        <div class="col-lg-6"> 
+            <div style="text-align:center">
+                <img src="{{request.user.profile.profile_picture.url}}"  alt="profile_pic" width="250px"  height="200px " style="border-radius: 50%;">
+            </div><hr> 
             <div class="card-1">
                 <div class="card-text " style="padding: 20px;">
                     <h4 ><strong> Username:</strong> {{request.user.profile.user}}</h4>
@@ -13,7 +16,7 @@
                     <h4 ><strong>Location:</strong> {{request.user.profile.location}}</h4>
                     <h4 ><strong>Contact:</strong> {{request.user.profile.contact}}</h4><br>
 
-                    <h4 class="text-center"><strong>Profile Bio</strong></h4>
+                    <h4 class="text-center"><strong>Bio</strong></h4>
                     <p class="text-center">{{request.user.profile.bio}}</p><hr>
                 </div>
 

@@ -54,6 +54,7 @@ def user_profile(request):
 def update_profile(request):
     current_user = request.user 
     profile = request.user.profile 
+    # profile = Profile.objects.get(id=pk)
     form = UpdateProfileForm(instance=profile) 
 
     if request.method == 'POST':
