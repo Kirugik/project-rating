@@ -52,15 +52,21 @@ def user_profile(request):
 
 
 def update_profile(request):
-    profile = request.user.profile
+    current_user = request.user 
+    profile = request.user.profile 
     form = UpdateProfileForm(instance=profile) 
 
     if request.method == 'POST':
         form = UpdateProfileForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid:
-            form.save() 
+        if form.is_valid():
+            updated_profile = form.save(commit=False)
+            updated_profile.user = current_user
+            updated_profile.save()
+        return redirect('index')
+    else:
+        form = UpdateProfileForm()
     
-    context = {'profile': profile, 'form': form} 
+    context = {'current_user': current_user, 'profile': profile, 'form': form} 
     return render(request, 'rater/update_profile.html', context)  
 
 

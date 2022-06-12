@@ -1,27 +1,26 @@
 {% extends 'rater/base.html' %} 
-{% load bootstrap4 %}
+
+{% block title %} Update Profile {% endblock %} 
 
 
 {% block content %}
-<div class="container">
-    <div class="row"style="padding-bottom: 50px;" >
-        <div class="col-lg-6">
-            <div style="text-align:center">
-                <img src="{{request.user.profile.profile_picture.url}}"  alt="profile_picture" width="200px"  height="200px " style="border-radius: 50%;">
-            </div><hr>
-            <h3>update profile</h3>
-            <div class="card-1">
-                <div class="card-text text-center" style="padding: 20px;">
-                    
-                    <form  action="" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        
-                        {{form.as_p}} 
-                        <input type="submit" class="btn btn-sm btn-success" value="Save">
-                    </form>
-                </div>
+<div class="container mt-5"> 
+    <div class="col-lg-6" >
+        <div style="text-align:center">
+            <img src="{{request.user.profile.profile_picture.url}}"  alt="profile_pic" width="250px"  height="200px " style="border-radius: 50%;">
+        </div><hr>
+        <div class="card-1" >
+            <div class="card-text text-center" style="padding: 20px;">
+        
+                <form  action="/awwards/profile" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+
+                    {{form.as_p}}
+                    <input type="submit" class="btn btn-sm btn-success" value="update">
+                </form>
             </div>
-        </div><br>
-    </div>
-</div> 
+        </div>
+
+    </div><br>
+</div>
 {% endblock %} 
