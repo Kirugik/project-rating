@@ -1,0 +1,27 @@
+{% extends 'rater/base.html' %} 
+{% load bootstrap4 %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row"style="padding-bottom: 50px;" >
+        <div class="col-lg-6">
+            <div style="text-align:center">
+                <img src="{{request.user.profile.profile_picture.url}}"  alt="profile_picture" width="200px"  height="200px " style="border-radius: 50%;">
+            </div><hr>
+            <h3>update profile</h3>
+            <div class="card-1">
+                <div class="card-text text-center" style="padding: 20px;">
+                    
+                    <form  action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        {{form.as_p}} 
+                        <input type="submit" class="btn btn-sm btn-success" value="Save">
+                    </form>
+                </div>
+            </div>
+        </div><br>
+    </div>
+</div> 
+{% endblock %} 

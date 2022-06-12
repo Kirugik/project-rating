@@ -12,9 +12,9 @@
         {% for project in projects %}
         <div class="col-md-3"> 
             <div class="card">
-                <img src="{{project.project_image.url}}" alt="{{project.project_name}}" width="300px" height="300px">
+                <img src="{{project.project_image.url}}" class="card-img-top img-fluid" alt="{{project.project_name}}">
                 <div>
-                    <h3>{{project.project_name}}</h3>
+                    <h3 style="margin-top: 15px; margin-left: 10px;">{{project.project_name}}</h3>
                     <small class="text-muted">{{project.description|slice:":200" }}...</small><br><br>
                     <small class="text-muted">{{project.pub_date}}</small>
                 </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Profile, Project, Rating
-from .forms import NewProjectForm
+from .forms import NewProjectForm, UpdateProfileForm
 from django.http import HttpResponse 
 from django.contrib.auth.models import User
 from rest_framework.response import Response
@@ -52,7 +52,16 @@ def user_profile(request):
 
 
 def update_profile(request):
-    return render(request, 'rater/update_profile.html') 
+    profile = request.user.profile
+    form = UpdateProfileForm(instance=profile) 
+
+    if request.method == 'POST':
+        form = UpdateProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid:
+            form.save() 
+    
+    context = {'profile': profile, 'form': form} 
+    return render(request, 'rater/update_profile.html', context)  
 
 
 
