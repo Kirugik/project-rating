@@ -43,7 +43,12 @@ def new_project(request):
 
 
 def user_profile(request):
-    return render(request, 'rater/user_profile.html')
+    profile = request.user.profile 
+    projects = request.user.profile.project_set.all()
+
+
+    context = {'profile': profile, 'projects': projects}
+    return render(request, 'rater/user_profile.html', context)
 
 
 def update_profile(request):

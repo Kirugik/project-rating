@@ -1,0 +1,42 @@
+{% extends 'rater/base.html' %} 
+{% load bootstrap4 %}
+
+
+{% block content %}
+<div class="container" >
+    <div class="row"style="padding-bottom: 50px;" >
+        <div class="col-lg-6">
+            <div class="card-1">
+                <div class="card-text " style="padding: 20px;">
+                    <h4 ><strong> Username:</strong> {{request.user.profile.user}}</h4>
+                    <h4 ><strong>Name:</strong> {{request.user.profile.fullname}}</h4>
+                    <h4 ><strong>Location:</strong> {{request.user.profile.location}}</h4>
+                    <h4 ><strong>Contact:</strong> {{request.user.profile.contact}}</h4><br>
+
+                    <h4 class="text-center"><strong>Profile Bio</strong></h4>
+                    <p class="text-center">{{request.user.profile.bio}}</p><hr>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div >
+        <h4 class="text-center" style="font-weight: bold;">My Projects</h4><hr>  
+
+        {% for project in projects %}
+        <div class="col-lg-4 col-lg-4 col-lg-4">
+            <div class="card ">
+                <img src="{{project.project_image.url}}"  class="card-img-top img-fluid" alt="{{project.project_name}}" >
+                <div class="card-text text-center">
+                    <h4 style="font-weight: bold;">{{project.name}}</h4>
+                    <small class="text-muted">{{project.description | slice:":100" }}...</small><br><br>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{%endblock%}
