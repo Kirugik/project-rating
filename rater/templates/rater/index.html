@@ -3,9 +3,60 @@
 {% block title %} Project Rating {% endblock %}
 
 
+
 {% block content %}
-<div class="container-fluid mt-3"> 
-    <div class="row">
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    color: #000000;
+}
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 75vh;  
+    background-color: #A0AECD; 
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(images/forest.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(60%);
+}
+.hero-content {
+    position: relative;
+    top: 30%;
+    left: 15%;
+}
+</style> 
+
+
+
+
+<div class="hero">
+    <div class="hero-content">
+        <h3 class="hero-title" style="margin-bottom: 15px;">
+            Get Your Projects Reviewed
+        </h3>
+        <h4 class="hero-subtitle" style="margin-bottom: 15px;"> 
+            See how your projects rate based on design, usability, creativity, and content
+        </h4>
+        <button type="button" class="hero-button">
+            Submit Your Project
+        </button>
+    </div> 
+</div>
+
+
+<div class="container-fluid">
+    <div class="row mt-3">
 
         {% for project in projects %}
         <div class="col-md-3">
