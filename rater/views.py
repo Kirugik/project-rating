@@ -18,8 +18,11 @@ def project_details(request):
     return render(request, 'rater/project_details.html')
 
 
-def project_review(request):
-    return render(request, 'rater/project_review.html')
+def project_review(request, project_id):
+    project = Project.objects.get(id=project_id)
+
+    context = {'project': project}
+    return render(request, 'rater/project_review.html', context) 
 
 
 
