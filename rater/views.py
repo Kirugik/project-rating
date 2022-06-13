@@ -12,9 +12,9 @@ from .serializer import ProfileSerializer, ProjectSerializer, RatingSerializer
 
 # Create your views here.
 def registerUser(request):
-    # if request.user.is_authenticated:
-    #     return redirect('index')
-    # else:
+    if request.user.is_authenticated:
+        return redirect('index')
+    else:
         form = SignupForm() 
 
         if request.method == 'POST':
@@ -31,10 +31,10 @@ def registerUser(request):
 
 
 def loginUser(request):
-    # if request.user.is_authenticated:
-    #     return redirect('index')
+    if request.user.is_authenticated:
+        return redirect('index')
 
-    # else:
+    else:
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')
@@ -80,6 +80,8 @@ def project_details(request):
     return render(request, 'rater/project_details.html')
 
 
+
+login_required(login_url='login') 
 def project_review(request, id):
     project = Project.objects.get(id=id)   
 
@@ -88,9 +90,9 @@ def project_review(request, id):
 
 
 
+login_required(login_url='login') 
 def profile_project_api(request):
     return render(request,'rater/api.html')
-
 
 
 def search_project(request):
@@ -106,8 +108,8 @@ def search_project(request):
 
 
 
-
-def new_project(request):
+login_required(login_url='login') 
+def new_project(request): 
     current_user = request.user
     
     if request.method == 'POST':
@@ -123,6 +125,8 @@ def new_project(request):
     return render(request, 'rater/new_project.html', context)  
 
 
+
+login_required(login_url='login') 
 def user_profile(request):
     profile = request.user.profile 
     projects = request.user.profile.project_set.all()
@@ -132,6 +136,8 @@ def user_profile(request):
     return render(request, 'rater/user_profile.html', context)
 
 
+
+login_required(login_url='login') 
 def update_profile(request):
     current_user = request.user 
     profile = request.user.profile 
