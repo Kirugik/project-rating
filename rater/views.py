@@ -80,7 +80,7 @@ def project_details(request):
 
 
 
-login_required(login_url='login') 
+@login_required(login_url='login') 
 def project_review(request, id):
     project = Project.objects.get(id=id)   
 
@@ -89,7 +89,7 @@ def project_review(request, id):
 
 
 
-login_required(login_url='login') 
+@login_required(login_url='login') 
 def profile_project_api(request):
     return render(request,'rater/api.html')
 
@@ -107,7 +107,7 @@ def search_project(request):
 
 
 
-login_required(login_url='login') 
+@login_required(login_url='login')  
 def new_project(request): 
     current_user = request.user
     
@@ -125,18 +125,18 @@ def new_project(request):
 
 
 
-login_required(login_url='login') 
+@login_required(login_url='login')  
 def user_profile(request):
     profile = request.user.profile 
     projects = request.user.profile.project_set.all()
 
 
     context = {'profile': profile, 'projects': projects}
-    return render(request, 'rater/user_profile.html', context)
+    return render(request, 'rater/user_profile.html', context) 
 
 
 
-login_required(login_url='login') 
+@login_required(login_url='login') 
 def update_profile(request):
     current_user = request.user 
     profile = request.user.profile 
