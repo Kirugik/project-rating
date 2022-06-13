@@ -12,9 +12,9 @@ from .serializer import ProfileSerializer, ProjectSerializer, RatingSerializer
 
 # Create your views here.
 def registerUser(request):
-    if request.user.is_authenticated:
-        return redirect('index')
-    else:
+    # if request.user.is_authenticated:
+    #     return redirect('index')
+    # else:
         form = SignupForm() 
 
         if request.method == 'POST':
@@ -31,10 +31,10 @@ def registerUser(request):
 
 
 def loginUser(request):
-    if request.user.is_authenticated:
-        return redirect('index')
+    # if request.user.is_authenticated:
+    #     return redirect('index')
 
-    else:
+    # else:
         if request.method == 'POST':
             username = request.POST.get('username')
             password = request.POST.get('password')
