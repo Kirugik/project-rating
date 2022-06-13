@@ -32,8 +32,7 @@ def registerUser(request):
 
 def loginUser(request):
     if request.user.is_authenticated:
-        return redirect('index')
-
+        return redirect('index') 
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
