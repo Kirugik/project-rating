@@ -9,7 +9,7 @@ from .serializer import ProfileSerializer, ProjectSerializer, RatingSerializer
 
 # Create your views here.
 def index(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all() 
     context = {'projects': projects}
     return render(request, 'rater/index.html', context)
 
@@ -18,8 +18,8 @@ def project_details(request):
     return render(request, 'rater/project_details.html')
 
 
-def project_review(request, project_id):
-    project = Project.objects.get(id=project_id)
+def project_review(request, id):
+    project = Project.objects.get(id=id)   
 
     context = {'project': project}
     return render(request, 'rater/project_review.html', context) 
@@ -91,11 +91,11 @@ def update_profile(request):
 
 
 
-class ProfilesList(APIView):
+class ProfilesList(APIView): 
     def get(self, request, format=None):
         all_profiles = Profile.objects.all() 
         serializers = ProfileSerializer(all_profiles, many=True)
-        return Response (serializers.data)
+        return Response (serializers.data) 
 
 
 class ProjectsList(APIView):
@@ -103,5 +103,4 @@ class ProjectsList(APIView):
         all_projects = Project.objects.all()
         serializers = ProjectSerializer(all_projects, many=True)
         return Response (serializers.data)
-
 
