@@ -30,7 +30,7 @@ class Project(models.Model):
         
     @classmethod
     def search_project(cls, keyword):
-        projects = cls.objects.filter(project__name=keyword) 
+        projects = cls.objects.filter(project_name__icontains=keyword) 
         return projects 
         
     class Meta:

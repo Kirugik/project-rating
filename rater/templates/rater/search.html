@@ -1,5 +1,6 @@
 {%extends 'rater/base.html'%} 
 
+
 {% block content %}
 <style>
 .card {
@@ -36,7 +37,6 @@
     
     
     <div class="row">
-        {% if projects %}
         
         {% for project in projects %} 
         <div class="col-md-3">
@@ -54,7 +54,6 @@
         </div>
         {% endfor %}
         
-        {% endif %}
     </div>
 </div> 
 {% endblock %}

@@ -25,21 +25,16 @@ def project_review(request):
 
 
 
-
 def search_project(request):
-    
-    if 'project' in request.GET and request.GET["project"]:
+    if 'project' in request.GET and request.GET['project']:
         keyword = request.GET.get("project") 
         projects = Project.search_project(keyword)
         message = f"{keyword}"  
-        return render(request, 'rater/search.html')
+        return render(request, 'rater/search.html', {"message": message, "projects": projects, 'keyword': keyword})
     else:
         message = "You haven't searched for any project"
 
-    context = {"message": message, "projects": projects} 
-    return render(request, 'rater/search.html', context)
-
-
+        return render(request, 'rater/search.html', {"message": message})
 
 
 
