@@ -23,6 +23,9 @@ def project_review(request):
 
 
 
+def profile_project_api(request):
+    return render(request,'rater/api.html')
+
 
 
 def search_project(request):
