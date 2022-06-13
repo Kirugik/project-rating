@@ -24,16 +24,16 @@
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: url(images/forest.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    filter: brightness(60%); */
 }
+
 .hero-content {
     position: relative;
     top: 30%;
     left: 15%;
+}
+
+.hero-button:hover {
+    color: #413f42; 
 }
 
 .card {
@@ -64,9 +64,8 @@
         <h4 class="hero-subtitle" style="margin-bottom: 15px;"> 
             See how your projects rate based on design, usability, creativity, and content
         </h4>
-        <button type="button" class="hero-button">
-            Submit Your Project
-        </button>
+        <a href="{% url 'new-project' %}" style="font-size:20px;"><button type="button" class="hero-button" style="border: none; border-radius: 15px; padding: 7px;">Submit Your Project</button></a>
+        
     </div> 
 </div>
 
