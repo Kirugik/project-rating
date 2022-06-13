@@ -4,7 +4,20 @@
     <a class="navbar-brand" href="#">MENU</a> 
     
     <!-- Navbar Right icon -->
+    <div class="search pmd-navbar-right-icon ml-auto"> 
+        <!-- Adding a search form  -->
+            <form class="navbar-form" role="search" action="{% url 'search' %}">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search a project" name="image" style="width: 500px;"> 
+                        <button class="btn btn-default" type="submit" style="background-color: #ffffff; color: #5A5560; font-size: 14px; margin-left: 1px;"><i class="glyphicon glyphicon-search"></i>
+                        </button>
+                </div>
+            </form>
+        <!-- search form end -->
+    </div>
     <div class="pmd-navbar-right-icon ml-auto">
+        <a href="{% url 'new-project' %}" style="font-size: 20px; margin-right: 20px">Submit Project</a>
+        <a href="{% url 'user-profile' %}" style="font-size: 20px; margin-right: 20px">Profile</a>
         <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect"><i class="fa-solid fa-magnifying-glass"></i></a>
     </div>
 </nav>
