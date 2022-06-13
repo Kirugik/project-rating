@@ -1,4 +1,6 @@
 from django.forms import ModelForm
+from django.contrib.auth.forms import UserCreationForm  
+from django.contrib.auth.models import User 
 from .models import Project, Profile
 
 
@@ -14,4 +16,10 @@ class UpdateProfileForm(ModelForm):
         model = Profile
         fields = ['fullname', 'profile_picture', 'bio', 'location', 'contact']
         exclude = ['user']  
+
+
+class SignupForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']  
     
