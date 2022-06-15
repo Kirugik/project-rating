@@ -41,7 +41,7 @@ def loginUser(request):
             try:
                 user = User.objects.get(username=username)
             except:
-                messages.error(request, 'User do not exist')
+                messages.error(request, 'User has not account')
                 
             user = authenticate(request, username=username, password=password) 
 
