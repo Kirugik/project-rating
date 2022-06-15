@@ -29,16 +29,36 @@
 
 
     
-    <div class="pmd-navbar-right-icon ml-auto">
+    <div class="pmd-navbar-right-icon d-flex ml-auto">
         {% if request.user.is_authenticated %}
-        <a href="{% url 'new-project' %}" style="font-size: 20px; margin-right: 30px; color: white; text-decoration: none;">Submit Your Project</a>
-        
-        <a href="{% url 'user-profile' %}" style="font-size: 20px; margin-right: 30px; color: white; text-decoration: none;">Profile</a>
-        <a href="{% url 'logout' %}" style="font-size: 20px; margin-right: 20px; color: white; text-decoration: none;">Logout</a>
-        {% else %}  
-        <a href="{% url 'login' %}" style="font-size: 20px; margin-right: 20px; color: white; text-decoration: none;">Login</a>
+        <div>
+            <a href="{% url 'new-project' %}" style="font-size: 20px; margin-right: 30px; color: white; text-decoration: none;">Submit Your Project</a>
+        </div>
+
+        <div class="dropdown"> 
+            <a class="btn btn-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 30px;"> 
+                APIs
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="projectrating/api/profiles/" target="_blank">Profiles API</a></li>
+                <li><a class="dropdown-item" href="projectrating/api/projects/" target="_blank">Projects API</a></li> 
+            </ul>
+        </div>
+
+        <div>
+            <address href="{% url 'user-profile' %}" style="font-size: 20px; margin-right: 30px; color: white; text-decoration: none;">Profile</address>
+        </div>
+
+        <div>
+            <a href="{% url 'logout' %}" style="font-size: 20px; margin-right: 20px; color: white; text-decoration: none;">Logout</a>
+        </div>
+
+        {% else %}
+        <div>
+            <a href="{% url 'login' %}" style="font-size: 20px; margin-right: 20px; color: white; text-decoration: none;">Login</a>
+        </div>  
         {% endif %}  
-        <!-- <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect"><i class="fa-solid fa-magnifying-glass"></i></a> -->
+
     </div>
 </nav>
 
