@@ -1,4 +1,6 @@
 {% extends 'rater/base.html' %}
+{% load bootstrap4 %}
+{% load static %} 
 
 {% block title %} Project Rating {% endblock %}
 
@@ -27,9 +29,13 @@
 }
 
 .hero-content {
-    position: relative;
+    padding-top: 120px;
+    padding-left: 200px;
+
+
+    /* position: relative;
     top: 30%;
-    left: 15%;
+    left: 15%; */
 }
 
 .hero-button:hover {
@@ -39,6 +45,7 @@
 .card {
     font-size: 18px;
     min-height: 700px; 
+    margin-bottom: 15px; 
 }
 .card img {
     min-height: 400px; 
@@ -61,26 +68,26 @@
         <h3 class="hero-title" style="margin-bottom: 15px;">
             Get Your Projects Reviewed
         </h3>
-        <h4 class="hero-subtitle" style="margin-bottom: 15px;"> 
+        <h4 class="hero-subtitle" style="margin-bottom: 20px;"> 
             See how your projects rate based on design, usability, creativity, and content
         </h4>
-        <a href="{% url 'new-project' %}" style="font-size:20px;"><button type="button" class="hero-button" style="border: none; border-radius: 15px; padding: 7px;">Submit Your Project</button></a>
+        <!-- <a href="{% url 'new-project' %}" style="font-size:20px;"><button type="button" class="hero-button" style="border: none; border-radius: 15px; padding: 7px;">Submit Your Project</button></a> -->
         
     </div> 
 </div>
 
 
-<div class="container-fluid">
-    <div class="row mt-4 mb-1"> 
+<div class="container-fluid mt-5">  
+    <div class="row mb-1"> 
 
         {% for project in projects %}
-        <div class="col-md-3">
+        <div class="col-md-4">
             
             <div class="card"> 
                 <img src="{{project.project_image.url}}" class="card-img-top img-fluid" alt="{{project.project_name}}">
                 <div class="card-content">
                     <h3 style="margin-top: 15px;">{{project.project_name}}</h3>
-                    <p>{{project.description|slice:":100" }}...</p>
+                    <p>{{project.description|slice:":50" }}...</p>
                     <div class="loc-date">
                         <p>From {{project.profile.location}}</p>
                         <p>{{project.pub_date}}</p> 

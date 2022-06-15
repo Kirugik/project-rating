@@ -66,9 +66,6 @@ def logoutUser(request):
 
 
 
-
-
-
 def index(request):
     projects = Project.objects.all() 
     context = {'projects': projects}
@@ -129,7 +126,6 @@ def new_project(request):
 def user_profile(request):
     profile = request.user.profile 
     projects = request.user.profile.project_set.all()
-
 
     context = {'profile': profile, 'projects': projects}
     return render(request, 'rater/user_profile.html', context) 

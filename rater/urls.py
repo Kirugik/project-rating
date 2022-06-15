@@ -5,7 +5,7 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.index, name='index'), 
     
     path('register/', views.registerUser, name='register'), 
     path('login/', views.loginUser, name='login'),
@@ -15,7 +15,7 @@ urlpatterns = [
     path('project-review/<int:id>', views.project_review, name='project-review'),
     path('new-project/', views.new_project, name='new-project'),
 
-    path('search/', views.search_project, name='search'), 
+    path('search/', views.search_project, name='search'),  
 
     path('user-profile/', views.user_profile, name='user-profile'),
     path('update-profile/', views.update_profile, name='update-profile'),  
