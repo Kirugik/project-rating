@@ -17,7 +17,7 @@
 
 
 
-        <form method="POST" action="">
+        <form method="POST" action="{% url 'new-project' %}" enctype="multipart/form-data">
             {% csrf_token %} 
             <div class="input-group mb-3">
                 <label for="project-name">Project Name: </label>

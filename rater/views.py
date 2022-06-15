@@ -107,6 +107,7 @@ def search_project(request):
 @login_required(login_url='login')  
 def new_project(request): 
     current_user = request.user
+    form = NewProjectForm() 
     
     if request.method == 'POST':
         form = NewProjectForm(request.POST, request.FILES)
@@ -114,7 +115,7 @@ def new_project(request):
             new_project = form.save(commit=False)
             new_project.user = current_user
             new_project.save()
-        return redirect('index') 
+        return redirect('index')  
     else:
         form = NewProjectForm()
     context = {'form': form, 'current_user': current_user}
